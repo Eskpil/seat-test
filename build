@@ -1,0 +1,7 @@
+#!/bin/sh
+
+SEAT=$(exec pkg-config --cflags --libs libseat)
+ELOGIND=$(exec pkg-config --cflags --libs libelogind)
+EVDEV=$(exec pkg-config --cflags --libs libevdev)
+
+gcc -o main -ggdb $SEAT $EVDEV $ELOGIND main.c
